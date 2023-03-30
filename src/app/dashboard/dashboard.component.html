@@ -1,6 +1,7 @@
 
 
-<mat-sidenav-container autosize="true" color="primary" *ngIf="!userIsAuthenticated" >
+
+<mat-sidenav-container autosize="true" color="primary" >
   <mat-sidenav #sidenav mode="side" opened="true" >
     <mat-nav-list color="primary">
       <mat-list-item (click)="isExpanded = !isExpanded">
@@ -8,31 +9,31 @@
         </mat-icon>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'dashboard'" >home</mat-icon>
+        <mat-icon mat-list-icon class="" [routerLink]="'Home'" >home</mat-icon>
         <span *ngIf="isExpanded">Home</span>
       </mat-list-item>
 
       <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'AddAdmin'" ><span class="material-symbols-outlined">
+        <mat-icon mat-list-icon class="" [routerLink]="''" ><span class="material-symbols-outlined">
           admin_panel_settings
           </span></mat-icon>
         <span *ngIf="isExpanded">Admins</span>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'Users'" >supervisor_account</mat-icon>
+        <mat-icon mat-list-icon class="" [routerLink]="''" >supervisor_account</mat-icon>
         <span *ngIf="isExpanded">Thoughts</span>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'Rooms'" >bed</mat-icon>
+        <mat-icon mat-list-icon class="" [routerLink]="''" >bed</mat-icon>
         <span *ngIf="isExpanded">Daily basis</span>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon class=""  >book_online</mat-icon>
+        <mat-icon mat-list-icon class=""  >Mail</mat-icon>
         <span *ngIf="isExpanded">Contact friend</span>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon class="" routerLink="/Task"  >surfing</mat-icon>
-        <span *ngIf="isExpanded">Tasks</span>
+        <mat-icon mat-list-icon class="" routerLink='/Task'  >surfing</mat-icon>
+        <span *ngIf="isExpanded">Plan</span>
       </mat-list-item>
 
 
@@ -50,13 +51,12 @@
 
         <span class="example-spacer"></span>
         <!-- <a mat-button > Create Account </a> -->
-        <a mat-button routerLink="/LoginPage" *ngIf="!userIsAuthenticated" ><mat-icon>login</mat-icon> Login </a>
+        <a mat-button [routerLink]="''" *ngIf="!userIsAuthenticated" ><mat-icon>login</mat-icon> Login </a>
         <a mat-button  [routerLink]="''"  *ngIf="userIsAuthenticated" >Log Out</a>
 
       </mat-toolbar>
 
 
-    <router-outlet></router-outlet>
-    <!-- <app-task-view></app-task-view> -->
   </div>
 </mat-sidenav-container>
+

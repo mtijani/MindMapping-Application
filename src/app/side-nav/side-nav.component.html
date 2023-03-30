@@ -1,6 +1,24 @@
+<!-- <div class="sidenav">
+  <div class="logo">
+    <a href="/" class="simple-text logo-mini">
+      <div class="logo-img">
+        <img src="">
+      </div>
+    </a>
+    <a href="/" class="simple-text logo-normal">
+      My Application
+    </a>
+  <ul class="nav">
+    <li class="active">
+      <a routerLink="/"><i class="fas fa-chart-line"></i>Dashboard</a>
+    </li>
+
+  </ul>
+  </div>
+</div> -->
 
 
-<mat-sidenav-container autosize="true" color="primary" *ngIf="!userIsAuthenticated" >
+<mat-sidenav-container autosize="true" color="primary" >
   <mat-sidenav #sidenav mode="side" opened="true" >
     <mat-nav-list color="primary">
       <mat-list-item (click)="isExpanded = !isExpanded">
@@ -32,7 +50,7 @@
       </mat-list-item>
       <mat-list-item>
         <mat-icon mat-list-icon class="" routerLink="/Task"  >surfing</mat-icon>
-        <span *ngIf="isExpanded">Tasks</span>
+        <span *ngIf="isExpanded">Plan</span>
       </mat-list-item>
 
 
@@ -50,7 +68,7 @@
 
         <span class="example-spacer"></span>
         <!-- <a mat-button > Create Account </a> -->
-        <a mat-button routerLink="/LoginPage" *ngIf="!userIsAuthenticated" ><mat-icon>login</mat-icon> Login </a>
+        <a mat-button [routerLink]="''" *ngIf="!userIsAuthenticated" ><mat-icon>login</mat-icon> Login </a>
         <a mat-button  [routerLink]="''"  *ngIf="userIsAuthenticated" >Log Out</a>
 
       </mat-toolbar>
