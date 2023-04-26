@@ -23,6 +23,7 @@ import {MatSelectModule} from '@angular/material/select'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTableModule} from '@angular/material/table';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatCardModule} from '@angular/material/card';
@@ -35,6 +36,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaskViewComponent } from './pages/task-view/task-view.component';
 import { NewListComponent } from './pages/new-list/new-list.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { WebRequestInterceptorService } from './web-request-interceptor.service';
+import { EditListComponent } from './pages/edit-list/edit-list.component';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
+import { KanbanComponent } from './kanban/kanban.component';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +53,10 @@ import { NewTaskComponent } from './pages/new-task/new-task.component';
     HomePageComponent,
     TaskViewComponent,
     NewListComponent,
-    NewTaskComponent
+    NewTaskComponent,
+    EditListComponent,
+    EditTaskComponent,
+    KanbanComponent
   ],
   imports: [
     BrowserModule,
@@ -68,10 +79,15 @@ import { NewTaskComponent } from './pages/new-task/new-task.component';
     MatListModule,
     MatRadioModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    DragDropModule,
+
+
 
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: WebRequestInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

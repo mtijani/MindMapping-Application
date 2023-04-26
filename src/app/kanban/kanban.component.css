@@ -1,0 +1,76 @@
+.root{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin:0;
+  font-family: 'Roboto';
+  color:white;
+  background:#202731;
+}
+.app-name{
+  font-size:20px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  margin:0;
+  font-family: 'Roboto';
+  color:white;
+  background:#202731;
+}
+.has-gradient-text{
+  background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.layer4{
+  background-image: url('C:\Users\Tijani\Desktop\Tp_Sem2\MiniProjet\Myproject\src\assets\background.png');
+
+}
+.board-bar{
+
+  background-color: rgba(blue, 1);
+  padding:8px 15px;
+}
+.board-name{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.board-bar .board-name{
+  margin-left: 10px;
+}
+.board{
+  display:flex;
+  flex-direction: column;
+  flex-grow:1;
+}
+
+
+.board-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+  overflow-x: auto;
+}
+.board-colmuns{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background:rgba(rgb(148, 70, 70), 1);
+}
+.board-colmun{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 300px;
+  margin: 50px;
+  padding: 25px;
+  flex-basis: 0;
+  background: rgba(white, 0.5);
+  border-radius: 5px;
+}
+
+body{
+
+}

@@ -23,6 +23,7 @@ export class AuthService {
   }
   logout(){
     this.removeSession();
+    this.router.navigate(['/LoginPage']);
   }
   getAccessToken(){
     return localStorage.getItem('x-access-token');
@@ -43,6 +44,32 @@ export class AuthService {
     localStorage.removeItem('userId');
     localStorage.removeItem('x-access-token');
     localStorage.removeItem('x-refresh-token');
+  }
+  getUserId(){
+    return localStorage.getItem('userId');
+  }
+  signUp(email:string,password:string){
+    return this.WebService.signUp(email,password).pipe(
+      shareReplay(),
+      tap((res:HttpResponse<any>)=>{
+        //the auth tokens will be in the header of this response
+          this.setSession(res.body._id,res.headers.get('x-access-token'),res.headers.get('x-refresh-token'));
+          console.log("Signed Up !");
+      })
+    )
+  }
+  getNewAccessToken(){
+    return this.http.get(`${this.WebService.ROOT_URL}/users/me/access-token`,{
+      headers:{
+        'x-refresh-token':this.getRefreshToken(),
+        '_id':this.getUserId()
+      },
+      observe:'response'
+    }).pipe(
+      tap((res:HttpResponse<any>)=>{
+        this.setAccessToken(res.headers.get('x-access-token'));
+      })
+    )
   }
 
 

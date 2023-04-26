@@ -34,7 +34,14 @@ margin-bottom: 20px;
   flex-direction: column;
   position: relative;
 
+
 }
+
+.dropdown-trigger{
+  display:flex;
+margin-left: 710px;
+}
+
 .title{
   letter-spacing: 2px;
   font-size: 23px;
@@ -71,14 +78,19 @@ margin-bottom: 5px;
   margin-top: 10px;
   transition: box-shadow 0.2s ease, transform 0.2s ease ;
   cursor: pointer;
+  display:flex;
 }
+
 .task:hover{
   box-shadow: 0 0 0 5px #eeeeee;
+}
+.task:text{
+  flex-grow: 1;
 }
 .task:active{
   transform: scale(0.95);
 }
-.complete{
+.completed{
   text-decoration: line-through;
   opacity: 0.6;
 }
@@ -88,12 +100,34 @@ margin-bottom: 5px;
 border-style: dashed;
   /* box-shadow: inset 5px 5px 5px 5px #2b3835; */
 }
+.task-buttons{
+  margin-left: 620px;
+  position: absolute;
+  height: 50px;
+  width: 100px;
+  margin-bottom: 50px;
+  padding: auto;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease;
+  /* opacity: 0; */
+
+
+}
 .circle-add-button {
   height:50px;
   width: 50px;
-  position: absolute;
+  position: relative;
   bottom: 35px;
   right: 35px;
   border:none;
   border-radius: 50%;
+  margin-top: 100px;
+  margin-left: 700px;
+}
+.empty-state-text{
+  font-size:20px;
+  color:#555;
+  text-align: center;
+
 }

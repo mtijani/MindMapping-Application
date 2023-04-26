@@ -118,8 +118,10 @@
   position: -webkit-sticky;
   top:0;
   z-index: 1000;
-  background: linear-gradient(0deg,#c754b8 0,#470347 100%);
+  background: linear-gradient(-54deg,#55034a 0,#fa8dfa );
+	animation: gradient 15s ease infinite;
 
+  background-size: 400% 400%;
 }
 .flexExpand {
   flex: 1 1 auto;

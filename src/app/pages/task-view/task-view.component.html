@@ -15,21 +15,80 @@
 
       <button class="button is-primary has-text-white" routerLink="/new-list" >+ New List</button>
     </div>
-    <div class="task-list-container has-background-light">
-      <h1 class="title has-text-primary">
-       Tasks
-      </h1>
-       <!-- Task element -->
-       <div class="task" *ngFor="let task of tasks" >
-        <p>
-          {{task.title}}
-        </p>
-       </div>
-      <button class="circle-add-button button is-family-secondary" routerLink="./new-task">
-        <img src="../../assets/addd.jpg">
+    <div class="task-list-container has-background-light" >
+      <div *ngIf="tasks">
+        <div class="top-bar">
+          <h1 class="title has-text-primary">
+            Tasks
+           </h1>
+           <div class="dropdown is-hoverable is-right">
+            <div class="dropdown-trigger">
+              <button class="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                <span class="icon is-small">
+                  <mat-icon mat-list-icon class="" >settings</mat-icon>
+                </span>
+              </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu4" role="menu">
+              <div class="dropdown-content">
+                <a  class="dropdown-item">
+                  <mat-icon mat-list-icon class="" >edit</mat-icon>
+
+                  Edit List
+                </a>
+                <hr class="dropdown-divider">
+                <a  (click)="onDeleteListClick()" class="dropdown-item has text-danger">
+                  <mat-icon mat-list-icon class="" >delete</mat-icon>
+                  Delete List
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <!-- Task element -->
+          <div class="task" *ngFor="let task of tasks"(click)="onTaskClick(task)" [ngClass]="{'completed':task.completed}" >
+
+            <div class="task-text">
+              <p>
+                {{task.title}}
+              </p>
+            </div>
+            <div class="task-buttons">
+              <button class="button" [routerLink]="['/lists',selectedlistId,'edit-task',task._id]">
+                <div class="icon">
+                 <mat-icon mat-list-icon class="" >edit</mat-icon>
+               </div>
+               </button>
+              <button class="button is-danger" (click)="onTaskDeleteClick(task._id)" style="margin-right:10px ;">
+               <div class="icon">
+                <mat-icon mat-list-icon class="" >delete</mat-icon>
+              </div>
+              </button>
+
+            </div>
+          </div>
+         <button class="circle-add-button button is-family-secondary" routerLink="./new-task">
+           <img src="../../assets/addd.jpg">
 
 
-      </button>
+         </button>
+
+      </div>
+      <!-- <h3 class="empty-state-text" *ngIf="tasks.length==0">
+        There are no Tasks here, click the add Button to create new task
+        </h3> -->
+      <div *ngIf="!tasks">
+        <div class="top-bar">
+           <h3 class="empty-state-text">
+          No List Has been selected
+          </h3>
+
+        </div>
+
+
+      </div>
+
 
 
     </div>

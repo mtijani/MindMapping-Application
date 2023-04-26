@@ -7,18 +7,23 @@ import { NewListComponent } from './pages/new-list/new-list.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { TaskViewComponent } from './pages/task-view/task-view.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
-
+import { EditListComponent } from './pages/edit-list/edit-list.component';
+import { EditTaskComponent } from './pages/edit-task/edit-task.component';
+import { KanbanComponent } from './kanban/kanban.component';
 const routes: Routes = [
   {path :'Dash', component:DashboardComponent},
   {path :'Sidy', component:SideNavComponent},
   {path :'LandingPage', component:LandingPageComponent},
   {path:'LoginPage',component:LoginPageComponent},
-  {path:'Task',redirectTo:'lists',pathMatch:'full'},
+   {path:'Task',redirectTo:'lists',pathMatch:'full'},
   {path:'new-list',component:NewListComponent},
   {path:'lists/:listId',component:TaskViewComponent},
   {path:'lists',component:TaskViewComponent},
-
-  {path:'lists/:listId/new-task',component:NewTaskComponent}
+  {path:'edit-list/:listId',component:EditListComponent},
+  {path:'lists/:listId/new-task',component:NewTaskComponent},
+  // {path:'**',redirectTo:'lists',pathMatch:'full'},
+  {path:'lists/:listId/edit-task/:taskId',component:EditTaskComponent},
+  {path:'Kanban',component:KanbanComponent}
 
 ];
 

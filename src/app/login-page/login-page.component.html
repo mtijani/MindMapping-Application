@@ -3,19 +3,18 @@
     <input type="checkbox" id="chk" aria-hidden="true">
     <div class="signup">
       <form>
-        <label style="background-color: aliceblue;" for="chk" aria-hidden="true">Sign Up</label>
-        <input type="text" name="txt" placeholder="User name" required="">
-        <input type="email" name="email" placeholder="Email" required="">
-        <input type="password" name="psswd" placeholder="password" required="">
-        <button>Sign Up</button>
+        <label  for="chk" aria-hidden="true">Sign Up</label>
+        <input #Signemail type="email" name="email" placeholder="Email" required="">
+        <input #SignPassword type="password" name="psswd" placeholder="password" required="">
+        <button (click)="onSignUpClicked(Signemail.value,SignPassword.value)">Sign Up </button>
       </form>
     </div>
     <div class="login">
       <form>
         <label for="chk" aria-hidden="true">Login</label>
-        <input type="email" name="email" placeholder="Email" required="">
-        <input type="password" name="psswd" placeholder="password" required="">
-        <button routerLink="/Home" >Login</button>
+        <input #email type="email" name="email" placeholder="Email" required="">
+        <input #password type="password" name="psswd" placeholder="password" required="">
+        <button routerLink="/lists" (click)="onLoginButtonClicked(email.value,password.value)" >Login</button>
       </form>
     </div>
   </div>
