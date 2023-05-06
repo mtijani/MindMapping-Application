@@ -1,62 +1,26 @@
 
+<h1 class="mat-display-1" *ngFor="let completedTask of tasks" style="color: white; margin-left: 2rem;">
+  List "{{completedTask.listTitle}}" has {{completedTask.countCompleted}} completed tasks
+</h1>
+<div class="container">
+  <mat-card class="example-card">
+    <mat-card-subtitle> Your Lists in total</mat-card-subtitle>
+    <mat-card-title>Number of your taks</mat-card-title>
+
+    <mat-divider inset></mat-divider>
+    <mat-card-actions>
+      <mat-card-content>
+        <div class="center">
+        <p><b>{{countTask}}</b></p>
+        </div>
+
+      </mat-card-content>
+    </mat-card-actions>
+    <mat-card-footer>
+      <button mat-button routerLink="/lists">Consult lists</button>
 
 
-<mat-sidenav-container autosize="true" color="primary" >
-  <mat-sidenav #sidenav mode="side" opened="true" >
-    <mat-nav-list color="primary">
-      <mat-list-item (click)="isExpanded = !isExpanded">
-        <mat-icon mat-list-icon class="chevron-button sidenav-button" [ngClass]="{ rotated: isExpanded }">chevron_right
-        </mat-icon>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'Home'" >home</mat-icon>
-        <span *ngIf="isExpanded">Home</span>
-      </mat-list-item>
+    </mat-card-footer>
+  </mat-card>
 
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="''" ><span class="material-symbols-outlined">
-          admin_panel_settings
-          </span></mat-icon>
-        <span *ngIf="isExpanded">Admins</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="''" >supervisor_account</mat-icon>
-        <span *ngIf="isExpanded">Thoughts</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="''" >bed</mat-icon>
-        <span *ngIf="isExpanded">Daily basis</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class=""  >Mail</mat-icon>
-        <span *ngIf="isExpanded">Contact friend</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" routerLink='/Task'  >surfing</mat-icon>
-        <span *ngIf="isExpanded">Plan</span>
-      </mat-list-item>
-
-
-    </mat-nav-list>
-
-
-  </mat-sidenav>
-
-  <div class="content">
-
-      <mat-toolbar color="primary">
-
-        <!-- <a mat-button><mat-icon>hotel</mat-icon> </a>
-        <a mat-button ></a> -->
-
-        <span class="example-spacer"></span>
-        <!-- <a mat-button > Create Account </a> -->
-        <a mat-button [routerLink]="''" *ngIf="!userIsAuthenticated" ><mat-icon>login</mat-icon> Login </a>
-        <a mat-button  [routerLink]="''"  *ngIf="userIsAuthenticated" >Log Out</a>
-
-      </mat-toolbar>
-
-
-  </div>
-</mat-sidenav-container>
 

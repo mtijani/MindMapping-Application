@@ -8,30 +8,20 @@
         </mat-icon>
       </mat-list-item>
       <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'dashboard'" >home</mat-icon>
+        <mat-icon mat-list-icon class="" routerLink="/Dash" >home</mat-icon>
         <span *ngIf="isExpanded">Home</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" [routerLink]="'Users'" >event</mat-icon>
+        <span *ngIf="isExpanded">Calendar</span>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon class="" routerLink="/Kanban" >table</mat-icon>
+        <span *ngIf="isExpanded">Product backlog</span>
       </mat-list-item>
 
       <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'AddAdmin'" ><span class="material-symbols-outlined">
-          admin_panel_settings
-          </span></mat-icon>
-        <span *ngIf="isExpanded">Admins</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'Users'" >supervisor_account</mat-icon>
-        <span *ngIf="isExpanded">Thoughts</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" [routerLink]="'Rooms'" >bed</mat-icon>
-        <span *ngIf="isExpanded">Daily basis</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class=""  >book_online</mat-icon>
-        <span *ngIf="isExpanded">Contact friend</span>
-      </mat-list-item>
-      <mat-list-item>
-        <mat-icon mat-list-icon class="" routerLink="/Task"  >surfing</mat-icon>
+        <mat-icon mat-list-icon class="" routerLink="/Task"  >add_task</mat-icon>
         <span *ngIf="isExpanded">Tasks</span>
       </mat-list-item>
 
